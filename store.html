@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tienda online de Beta Café - Cafés de la más alta calidad">
+    <title>Tienda - Beta Café</title>
+    <!-- Fuentes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos específicos para la tienda */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        /* Cabecera de la tienda */
+        header {
+            background-color: var(--marron-claro);
+            padding: 1rem;
+            display: flex;
+            justify-content: center; /* Centra el contenido de la cabecera */
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            position: absolute;
+            left: 20px; /* Mantén el logo en la esquina izquierda */
+        }
+
+        header nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 2rem; /* Espacio entre las pestañas */
+            justify-content: center; /* Centra las pestañas dentro del contenedor */
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline-block;
+        }
+
+        header nav ul li a {
+            color: var(--marron);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #6f3d23;
+        }
+
+        header nav ul li a:active {
+            transform: scale(0.98);
+        }
+
+        /* Filtros */
+        .filters {
+            background-color: var(--marron-claro);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filters select {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .product-item {
+            background-color: var(--blanco);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .product-item h3 {
+            font-size: 1.2rem;
+            color: var(--marron);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-item .description {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .product-item .price {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #000; /* Precio en negro */
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            background-color: var(--marron);
+            color: var(--blanco);
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #6f3d23;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera -->
+    <header>
+        <div class="logo">
+            <img src="bC.svg" alt="Logo Beta Café">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#about">Sobre Nosotros</a></li>
+                <li><a href="index.html#products">Productos</a></li>
+                <li><a href="store.html" class="active">Tienda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Filtros -->
+    <div class="filters">
+        <select>
+            <option value="all">Todos los productos</option>
+            <option value="price-low-high">Precio: Bajo a Alto</option>
+            <option value="price-high-low">Precio: Alto a Bajo</option>
+            <option value="region">Filtrar por Región</option>
+        </select>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar productos...">
+        </div>
+    </div>
+
+    <!-- Productos -->
+    <section>
+        <div class="product-list">
+            <!-- Producto 1 -->
+            <div class="product-item">
+                <img src="fotoproducto.png" alt="Café Premium">
+                <h3>Café Premium 250g</h3>
+                <p class="description">Café 100% orgánico, con notas afrutadas y de nuez. Ideal para cualquier ocasión.</p>
+                <p class="price">€8.99</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product-item">
+                <img src="fotoproducto.png" alt="Café Orgánico">
+                <h3>Café Orgánico 500g</h3>
+                <p class="description">Café orgánico de la mejor calidad. Suave y con un toque de chocolate.</p>
+                <p class="price">€12.50</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-item">
+                <img src="fotoproducto.png" alt="Café Arábica">
+                <h3>Café Arábica 1kg</h3>
+                <p class="description">Granos de café Arábica de alta calidad, perfectos para un café de especialidad.</p>
+                <p class="price">€18.99</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="product-item">
+                <img src="fotoproducto.png" alt="Café Tostado">
+                <h3>Café Tostado 500g</h3>
+                <p class="description">Café de tueste oscuro, con un sabor intenso y profundo.</p>
+                <p class="price">€10.00</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="product-item">
+                <img src="fotoproducto.png" alt="Café Espresso">
+                <h3>Café Espresso 250g</h3>
+                <p class="description">Café espresso de alta calidad, ideal para preparar un espresso perfecto.</p>
+                <p class="price">€7.99</p>
+                <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Beta Café. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
